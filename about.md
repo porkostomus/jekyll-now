@@ -4,12 +4,5 @@ title: About
 permalink: /about/
 ---
 
-Some information about me!
+It's a blog. Read my shit.
 
-### More Information
-
-Other stuff!
-
-### Contact me
-
-[porkostomus@mail.com](mailto:email@domain.com)
