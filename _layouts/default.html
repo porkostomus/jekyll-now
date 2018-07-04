@@ -11,18 +11,29 @@
 
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-    <link rel="stylesheet" type="text/css" href="http://app.klipse.tech/css/codemirror.css">
-
-<script>
-    window.klipse_settings = {
-        selector: '.language-klipse'// css selector for the html elements you want to klipsify
-    };
-</script>
-<script src="http://app.klipse.tech/plugin/js/klipse_plugin.js"></script>
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
 
   <body>
+    <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<script>
+    window.klipse_settings = {
+        codemirror_options_in: {
+            lineWrapping: true,
+            autoCloseBrackets: true
+        },
+        codemirror_options_out: {
+            lineWrapping: true
+        },
+        beautify_strings: true,
+        selector: '.language-klipse',
+    };
+
+
+
+</script>
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js?v=7.4.0"></script>
+
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
