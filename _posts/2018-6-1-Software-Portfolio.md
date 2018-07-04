@@ -3,13 +3,6 @@ layout: post
 title: Software Portfolio
 ---
 
-
-<p>And now, we are going to <strong>klipsify</strong> this code snippet:</p>
-
-
-<pre><code class="language-klipse">(map inc [1 2 3])
-</code></pre>
-
 Apps I've recently published:
 
 [Elements](https://porkostomus.github.io/elements/) - Learn the 118 chemical elements, built with ClojureScript and Reagent.
