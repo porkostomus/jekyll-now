@@ -8,7 +8,9 @@ title: Live Clojurescript Activated
 (take 13 (fib 0 1))
 </code></pre>
 
-And here is a simple greeter function:
+You can change the code however you want.
+
+Here is a simple greeter function:
 
 <pre><code class="language-klipse">(defn greet [name] 
   (str "What up, " name "!"))
