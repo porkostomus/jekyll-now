@@ -18,7 +18,8 @@ Here is the source for the ```frequencies``` function:
    (reduce (fn [counts x]
              (assoc! counts x (inc (get counts x 0))))
            (transient {}) coll)))
-nil```
+nil
+```
 
 <pre><code class="language-klipse">(ns live.test
   (:require [cljs.test :refer-macros [deftest is testing run-tests]]))
