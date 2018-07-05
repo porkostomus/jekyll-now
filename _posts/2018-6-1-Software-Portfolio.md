@@ -3,10 +3,6 @@ layout: post
 title: Software Portfolio
 ---
 
-```eval-clojure
-(map inc [1 2 3])
-```
-
 Apps I've recently published:
 
 [Elements](https://porkostomus.github.io/elements/) - Learn the 118 chemical elements, built with ClojureScript and Reagent.
