@@ -16,3 +16,5 @@ Here is a simple greeter function:
   (str "What up, " name "!"))
 (greet "Homie")
 </code></pre>
+
+This is possible because of [Klipse](https://github.com/viebel/klipse).
