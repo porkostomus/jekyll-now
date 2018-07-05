@@ -3,7 +3,7 @@ layout: post
 title: Software Portfolio
 ---
 
-Ap<p>And now, we are going to <strong>klipsify</strong> this code snippet:</p>
+<p>And now, we are going to <strong>klipsify</strong> this code snippet:</p>
 
 
 <pre><code class="language-klipse">(def fib-seq-seq
