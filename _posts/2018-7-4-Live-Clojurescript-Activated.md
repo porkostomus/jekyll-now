@@ -12,7 +12,7 @@ title: Live Clojurescript Activated
 Change the code and it is re-evaluated.
 No more blogging *about* code... *include* it.
 
-We can test the above Fibonacci function:
+We can test the above Fibonacci function using [cljs.test](https://clojurescript.org/tools/testing):
 
 <pre><code class="language-klipse">(ns fib.test
 (:require [cljs.test :refer-macros [deftest is testing run-tests]]))
