@@ -5,7 +5,7 @@ title: 4clojure-56-Distinct
 
 Remove duplicates from a sequence. Order of the items must be maintained.
 
-Source for ```distinct``` function:
+May not use the ```distinct``` function:
 
     user=> (source distinct)
     (defn distinct
@@ -37,7 +37,7 @@ Source for ```distinct``` function:
     nil
 
 
-This exercise continues the theme of taking a built-in function and re-implementing it another way: 
+This exercise continues the theme of taking a built-in function and asking us to re-implement it another way: 
 
 <pre><code class="language-klipse">(ns live.test
   (:require [cljs.test :refer-macros [deftest is testing run-tests]]))
