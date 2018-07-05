@@ -3,7 +3,7 @@ layout: post
 title: 4clojure-56-Distinct
 ---
 
-Write a function which removes the duplicates from a sequence. Order of the items must be maintained.
+Removes duplicates from a sequence. Order of the items must be maintained.
 
 <pre><code class="language-klipse">(ns live.test
   (:require [cljs.test :refer-macros [deftest is testing run-tests]]))
