@@ -3,10 +3,12 @@ layout: post
 title: Software Portfolio
 ---
 
-Apps I've recently published:
+Ap<p>And now, we are going to <strong>klipsify</strong> this code snippet:</p>
 
-[Elements](https://porkostomus.github.io/elements/) - Learn the 118 chemical elements, built with ClojureScript and Reagent.
 
-[Todo-List](https://porkostomus.github.io/todo-list/) - Simple Reframe app
-
-[Conduit](https://porkostomus.github.io/conduit/) - Reframe implementation of RealWorld app with CRUD, auth
+<pre><code class="language-klipse">(def fib-seq-seq
+  ((fn fib [a b] 
+     (lazy-seq (cons a (fib b (+ a b)))))
+   0 1))
+(take 13 fib-seq-seq)
+</code></pre>
