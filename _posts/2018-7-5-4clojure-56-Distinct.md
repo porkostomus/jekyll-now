@@ -24,7 +24,7 @@ Removes duplicates from a sequence. Order of the items must be maintained.
   (is (= (deduper [1 2 1 3 1 2 4]) [1 2 3 4]))
   (is (= (deduper [:a :a :b :b :c :c]) [:a :b :c]))
   (is (= (deduper '([2 4] [1 2] [1 3] [1 3])) '([2 4] [1 2] [1 3]))
-  (is (= (deduper (range 50)) (range 50)))
+      (is (= (deduper (range 50)) (range 50)))))
 
 (run-tests)
 </code></pre>
