@@ -2,10 +2,11 @@
 layout: post
 title: Software Portfolio
 ---
-
+<pre><code class="lang-eval-clojure>
 ```eval-clojure
 (map inc [1 2 3])
 ```
+  </pre>
 
 Apps I've recently published:
 
