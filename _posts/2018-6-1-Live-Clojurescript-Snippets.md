@@ -1,10 +1,7 @@
 ---
 layout: post
-title: Software Portfolio
+title: Live Clojurescript Snippets!
 ---
-
-<p>And now, we are going to <strong>klipsify</strong> this code snippet:</p>
-
 
 <pre><code class="language-klipse">(def fib-seq-seq
   ((fn fib [a b] 
