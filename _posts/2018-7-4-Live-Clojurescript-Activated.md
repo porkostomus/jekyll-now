@@ -14,8 +14,7 @@ No more blogging *about* code... *include* it.
 
 We can test the above Fibonacci function:
 
-<pre><code class="language-klipse">(ns my-project.tests
-  (:require [cljs.test :refer-macros [deftest is testing run-tests]]))
+<pre><code class="language-klipse">(:use [cljs.test :refer-macros [deftest is testing run-tests]])
 
 (defn fib [a b] 
   (lazy-seq (cons a (fib b (+ a b)))))
@@ -31,7 +30,7 @@ We can test the above Fibonacci function:
   (is (= (take 8 (fib 0 1)) '(0 1 1 2 3 5 8 13)))
   (is (= (take 9 (fib 0 1)) '(0 1 1 2 3 5 8 13 21)))
   (is (= (take 10 (fib 0 1)) '(0 1 1 2 3 5 8 13 21 34))))
-  
+
 (run-tests)
 </code></pre>
 
