@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure-54-Frequencies
+title: 4clojure-55-Frequencies
 ---
 
 Returns a map containing the number of occurences of each distinct item in a sequence.
