@@ -20,6 +20,7 @@ We can test the above Fibonacci function:
   (is (= (take 1 (fib 0 1)) '(0)))
   (is (= (take 2 (fib 0 1)) '(0 1)))
   (is (= (take 3 (fib 0 1)) '(0 1 1))))
+  
 (run-tests)
 </code></pre>
 
