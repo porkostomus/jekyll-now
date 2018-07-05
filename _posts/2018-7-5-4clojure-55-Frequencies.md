@@ -9,11 +9,7 @@ Returns a map containing the number of occurences of each distinct item in a seq
   (:require [cljs.test :refer-macros [deftest is testing run-tests]]))
 
 (defn freqs [s]
-  (loop [s s freq-map {}]
-    (if (empty? s)
-      freq-map
-      (recur (rest s)
-        (assoc freq-map (first s) (inc (get freq-map (first s) 0)))))))
+  (apply merge-with + (for [i s] {i 1})))
   
 (deftest partition-test
   (is (= (freqs [1 1 2 3 2 1 1]) {1 4, 2 2, 3 1}))
