@@ -1,7 +1,9 @@
 ---
 layout: post
-title: Live Clojurescript!
+title: Live Clojurescript
 ---
+
+## Thanks to [Klipse!](https://github.com/viebel/klipse)
 
 <pre><code class="language-klipse">(defn fib [a b] 
   (lazy-seq (cons a (fib b (+ a b)))))
