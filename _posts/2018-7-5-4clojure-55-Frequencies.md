@@ -9,8 +9,8 @@ Here is the source for the ```frequencies``` function:
 
     user=> (source frequencies)
     (defn frequencies
-    "Returns a map from distinct items in coll to the number of times
-    they appear."
+    "Returns a map from distinct items in coll
+    to the number of times they appear."
     {:added "1.2"
      :static true}
     [coll]
