@@ -41,18 +41,9 @@ This exercise continues the theme of taking a built-in function and asking us to
 
 <pre><code class="language-klipse">(ns live.test
   (:require [cljs.test :refer-macros [deftest is testing run-tests]]))
-
-(defn deduper [coll]
-  (loop [seen #{} s (seq coll) res []]
-    (if (empty? s)
-      res
-      (let [f (first s)]
-        (recur
-          (conj seen f)
-          (rest s)
-          (if (contains? seen f)
-            res
-            (conj res f)))))))
+  
+(defn deduper [s]
+    (reduce #(if ((set %) %2) % (conj % %2)) [] s))
   
 (deftest partition-test
   (is (= (deduper [1 2 1 3 1 2 4]) [1 2 3 4]))
