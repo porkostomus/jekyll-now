@@ -8,7 +8,8 @@ title: Live Clojurescript Activated
 (take 13 (fib 0 1))
 </code></pre>
 
-You can change the code and it is re-evaluated on the fly.
+Change the code and it is re-evaluated.
+No more blogging *about* code... *include* it.
 
 Here is a simple greeter function:
 
