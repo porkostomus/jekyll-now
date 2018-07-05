@@ -5,7 +5,7 @@ title: 4clojure-56-Distinct
 
 Remove duplicates from a sequence. Order of the items must be maintained.
 
-May not use the ```distinct``` function:
+However, we may not use the ```distinct``` function (because that would be too easy):
 
     user=> (source distinct)
     (defn distinct
@@ -45,7 +45,7 @@ This exercise continues the theme of taking a built-in function and asking us to
 (defn deduper [s]
     (reduce #(if ((set %) %2) % (conj % %2)) [] s))
   
-(deftest partition-test
+(deftest deduper-test
   (is (= (deduper [1 2 1 3 1 2 4]) [1 2 3 4]))
   (is (= (deduper [:a :a :b :b :c :c]) [:a :b :c]))
   (is (= (deduper '([2 4] [1 2] [1 3] [1 3])) '([2 4] [1 2] [1 3])))
