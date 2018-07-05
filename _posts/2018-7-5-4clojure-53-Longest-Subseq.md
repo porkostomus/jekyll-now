@@ -1,12 +1,9 @@
 ---
 layout: post
-title: More Live Clojurescript
+title: 4clojure-53-Longest-Subseq
 ---
 
-### 4clojure #53: Longest Increasing Subsequence
-
 Given a vector of integers, find the longest consecutive sub-sequence of 2 or more increasing numbers.
-
 
 <pre><code class="language-klipse">(ns live.test
   (:require [cljs.test :refer-macros [deftest is testing run-tests]]))
