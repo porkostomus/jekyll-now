@@ -14,6 +14,8 @@ No more blogging *about* code... *include* it.
 We can test the above Fibonacci function:
 
 <pre><code class="language-klipse">(:use '[cljs.test :refer-macros [deftest is testing run-tests]])
+(deftest fib-test
+  (is (= (take 1 (fib 0 1)) '(0))))
 </code></pre>
 
 Here is a simple greeter function:
