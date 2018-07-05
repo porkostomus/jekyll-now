@@ -14,7 +14,8 @@ No more blogging *about* code... *include* it.
 
 We can test the above Fibonacci function:
 
-<pre><code class="language-klipse">(:use [cljs.test :refer-macros [deftest is testing run-tests]])
+<pre><code class="language-klipse">(ns fib.test
+(:require [cljs.test :refer-macros [deftest is testing run-tests]]))
 
 (defn fib [a b] 
   (lazy-seq (cons a (fib b (+ a b)))))
