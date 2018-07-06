@@ -48,6 +48,16 @@ title: 4clojure-Problems-39-56
   (is (= (deinterleave (range 9) 3) '((0 3 6) (1 4 7) (2 5 8))))
   (is (= (deinterleave (range 10) 5) '((0 5) (1 6) (2 7) (3 8) (4 9)))))
 
+(defn shifter [n s]
+  (take (count s) (drop (mod n (count s)) (cycle s))))
+
+(deftest test-44
+  (is (= (shifter 2 [1 2 3 4 5]) '(3 4 5 1 2)))
+  (is (= (shifter -2 [1 2 3 4 5]) '(4 5 1 2 3)))
+  (is (= (shifter 6 [1 2 3 4 5]) '(2 3 4 5 1)))
+  (is (= (shifter 1 '(:a :b :c)) '(:b :c :a)))
+  (is (= (shifter -4 '(:a :b :c)) '(:c :a :b))))
+
 (defn longest-subseq [s]
     (or (first (for [l (reverse (range 2 (count s)))
                      f (filter #(apply < %) (partition l 1 s))]
