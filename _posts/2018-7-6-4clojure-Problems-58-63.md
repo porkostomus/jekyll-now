@@ -26,12 +26,11 @@ title: 4clojure-Problems-58-63
   (is (= ["HELLO" 5] ((myjuxt #(.toUpperCase %) count) "hello")))
   (is (= [2 6 4] ((myjuxt :a :c :b) {:a 2, :b 4, :c 6, :d 8 :e 10})))) 
  
- (defn my-reductions
-  ([f v s]
-    (lazy-seq
-      (cons v (if (seq s)
-                (r f (f v (first s)) (rest s))))))
-  ([f s] (r f (first s) (rest s))))
+(defn my-reductions
+  ([f [a & b]] (r f a b))
+  ([f a b]
+    (let [m (atom a)]
+      (cons a (map #(swap! m f %) b)))))
 
 (deftest test-60
   (is (= (take 5 (my-reductions + (range))) [0 1 3 6 10]))
