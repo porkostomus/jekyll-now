@@ -58,6 +58,15 @@ title: 4clojure-Problems-39-56
   (is (= (shifter 1 '(:a :b :c)) '(:b :c :a)))
   (is (= (shifter -4 '(:a :b :c)) '(:c :a :b))))
 
+(defn flipper [f]
+  #(f %2 %))
+
+(deftest test-46
+  (is (= 3 ((flipper nth) 2 [1 2 3 4 5])))
+  (is (= true ((flipper >) 7 8)))
+  (is (= 4 ((flipper quot) 2 8)))
+  (is (= [1 2 3] ((flipper take) [1 2 3 4 5] 3))))
+
 (defn longest-subseq [s]
     (or (first (for [l (reverse (range 2 (count s)))
                      f (filter #(apply < %) (partition l 1 s))]
