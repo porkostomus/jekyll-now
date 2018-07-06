@@ -37,5 +37,19 @@ title: 4clojure-Problems-84-85
   (is (= (powerset #{1 2 3}) #{#{} #{1} #{2} #{3} #{1 2} #{1 3} #{2 3} #{1 2 3}}))
   (is (= (count (powerset (into #{} (range 10)))) 1024)))
 
+(defn happy [n]
+  (loop [n n
+         s #{}]
+    (let [x (apply + (map #(let [i (- (int %) (int \0))] (* i i)) (str n)))]
+      (cond (= x 1) true
+            (s x) false
+            :else (recur x (conj s x))))))
+
+(deftest test-86
+  (is (= (happy 7) true))
+  (is (= (happy 986543210) true))
+  (is (= (happy 2) false))
+  (is (= (happy 3) false)))
+
 (run-tests)
 </code></pre>
