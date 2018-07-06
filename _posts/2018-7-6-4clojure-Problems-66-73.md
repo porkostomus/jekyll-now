@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure-Problems-66-70
+title: 4clojure-Problems-66-73
 ---
 
 <pre><code class="language-klipse">(ns live.test
@@ -50,6 +50,21 @@ title: 4clojure-Problems-66-70
    ["a" "Clojure" "fun" "is" "language"]))
   (is (= (word-sort  "Fools fall for foolish follies.")
    ["fall" "follies" "foolish" "Fools" "for"])))
+  
+(defn ttt [board]
+  (some {[:x :x :x] :x [:o :o :o] :o}
+       (concat board (apply map list board) 
+               (for [d [[[0 0] [1 1] [2 2]] [[2 0] [1 1] [0 2]]]]
+                 (for [[x y] d] ((board x) y))))))
+
+(deftest test-73
+  (is (= nil (ttt [[:e :e :e] [:e :e :e] [:e :e :e]])))
+  (is (= :x (ttt [[:x :e :o] [:x :e :e] [:x :e :o]])))
+  (is (= :o (ttt [[:e :x :e] [:o :o :o] [:x :e :x]])))
+  (is (= nil (ttt [[:x :e :o] [:x :x :e] [:o :x :o]])))
+  (is (= :x (ttt [[:x :e :e] [:o :x :e] [:o :e :x]])))
+  (is (= :o (ttt [[:x :e :o] [:x :o :e] [:o :e :x]])))
+  (is (= nil (ttt [[:x :o :x] [:x :o :x] [:o :x :o]]))))
   
 (run-tests)
 </code></pre>
