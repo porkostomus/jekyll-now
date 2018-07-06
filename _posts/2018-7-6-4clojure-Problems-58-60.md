@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure-Problems-58-59
+title: 4clojure-Problems-58-60
 ---
 
 <pre><code class="language-klipse">(ns live.test
@@ -25,6 +25,18 @@ title: 4clojure-Problems-58-59
   (is (= [21 6 1] ((myjuxt + max min) 2 3 5 1 6 4)))
   (is (= ["HELLO" 5] ((myjuxt #(.toUpperCase %) count) "hello")))
   (is (= [2 6 4] ((myjuxt :a :c :b) {:a 2, :b 4, :c 6, :d 8 :e 10})))) 
+ 
+ (defn my-reductions
+  ([f v s]
+    (lazy-seq
+      (cons v (if (seq s)
+                (r f (f v (first s)) (rest s))))))
+  ([f s] (r f (first s) (rest s))))
+
+(deftest test-60
+  (is (= (take 5 (my-reductions + (range))) [0 1 3 6 10]))
+  (is (= (my-reductions conj [1] [2 3 4]) [[1] [1 2] [1 2 3] [1 2 3 4]]))
+  (is (= (last (my-reductions * 2 [3 4 5])) (reduce * 2 [3 4 5]) 120)))
  
 (run-tests)
 </code></pre>
