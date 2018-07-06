@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure-Problems-75-81
+title: 4clojure-Problems-75-82
 ---
 
 <pre><code class="language-klipse">(ns live.test
@@ -72,6 +72,29 @@ title: 4clojure-Problems-75-81
   (is (= (set-sect #{0 1 2 3} #{2 3 4 5}) #{2 3}))
   (is (= (set-sect #{0 1 2} #{3 4 5}) #{}))
   (is (= (set-sect #{:a :b :c :d} #{:c :e :a :f :d}) #{:a :c :d})))
+  
+(defn word-chain [s]
+  (or (some (fn [w]
+              ((fn f [a s]
+                 (or (empty? s)
+                     (some #(if (loop [[a & b :as c] (seq a) [d & e :as g] (seq %)]
+                                  (if (= a d)
+                                    (recur b e)
+                                    (or (= b e) (= b g) (= c e))))
+                              (f % (disj s %)))
+                           s)))
+               w (disj s w)))
+            s)
+      false))
+
+
+(deftest test-82
+  (is (= true (word-chain #{"hat" "coat" "dog" "cat" "oat" "cot" "hot" "hog"})))
+  (is (= false (word-chain #{"cot" "hot" "bat" "fat"})))
+  (is (= false (word-chain #{"to" "top" "stop" "tops" "toss"})))
+  (is (= true (word-chain #{"spout" "do" "pot" "pout" "spot" "dot"})))
+  (is (= true (word-chain #{"share" "hares" "shares" "hare" "are"})))
+  (is (= false (word-chain #{"share" "hares" "hare" "are"}))))
   
 (run-tests)
 </code></pre>
