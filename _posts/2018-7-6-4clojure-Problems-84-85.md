@@ -28,6 +28,14 @@ title: 4clojure-Problems-84-85
      #{["father" "son"] ["father" "grandson"]
        ["uncle" "cousin"] ["son" "grandson"]}))))
 
-  
+(defn powerset [s]
+  (reduce #(into % (for [subset %] (conj subset %2))) #{#{}} s))
+
+(deftest test-85
+  (is (= (powerset #{1 :a}) #{#{1 :a} #{:a} #{} #{1}}))
+  (is (= (powerset #{}) #{#{}}))
+  (is (= (powerset #{1 2 3}) #{#{} #{1} #{2} #{3} #{1 2} #{1 3} #{2 3} #{1 2 3}}))
+  (is (= (count (powerset (into #{} (range 10)))) 1024)))
+
 (run-tests)
 </code></pre>
