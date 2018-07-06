@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure-Problems-58-62
+title: 4clojure-Problems-58-63
 ---
 
 <pre><code class="language-klipse">(ns live.test
@@ -55,6 +55,16 @@ title: 4clojure-Problems-58-62
   (is (= (take 5 (spaz-out #(* 2 %) 1)) [1 2 4 8 16]))
   (is (= (take 100 (spaz-out inc 0)) (take 100 (range))))
   (is (= (take 9 (spaz-out #(inc (mod % 3)) 1)) (take 9 (cycle [1 2 3])))))
+  
+(defn my-group-by [f s]
+  (reduce
+(fn [m x] (assoc m (f x) (conj (m (f x) []) x))) 
+{} s))
+
+(deftest test-63
+  (is (= (my-group-by #(> % 5) #{1 3 6 8}) {false [1 3], true [6 8]}))
+  (is (= (my-group-by #(apply / %) [[1 2] [2 4] [4 6] [3 6]]) {1/2 [[1 2] [2 4] [3 6]], 2/3 [[4 6]]}))
+  (is (= (my-group-by count [[1] [1 2] [3] [1 2 3] [2 3]]) {1 [[1] [3]], 2 [[1 2] [2 3]], 3 [[1 2 3]]})))
  
 (run-tests)
 </code></pre>
