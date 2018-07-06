@@ -23,6 +23,14 @@ title: 4clojure-Problems-39-56
   (is (= (apply str (inject ", " ["one" "two" "three"])) "one, two, three"))
   (is (= (inject :z [:a :b :c :d]) [:a :z :b :z :c :z :d])))
 
+(defn drop-every-nth [s n]
+  (apply concat (partition-all (dec n) n s)))
+
+(deftest test-41
+  (is (= (drop-every-nth [1 2 3 4 5 6 7 8] 3) [1 2 4 5 7 8]))
+  (is (= (drop-every-nth [:a :b :c :d :e :f] 2) [:a :c :e]))
+  (is (= (drop-every-nth [1 2 3 4 5 6] 4) [1 2 3 5 6])))
+
 (defn longest-subseq [s]
     (or (first (for [l (reverse (range 2 (count s)))
                      f (filter #(apply < %) (partition l 1 s))]
