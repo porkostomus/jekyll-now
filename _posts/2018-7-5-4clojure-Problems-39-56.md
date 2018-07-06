@@ -31,6 +31,15 @@ title: 4clojure-Problems-39-56
   (is (= (drop-every-nth [:a :b :c :d :e :f] 2) [:a :c :e]))
   (is (= (drop-every-nth [1 2 3 4 5 6] 4) [1 2 3 5 6])))
 
+(defn factorial [n]
+  (reduce * (range 1 (inc n))))
+
+(deftest test-42
+  (is (= (factorial 1) 1))
+  (is (= (factorial 3) 6))
+  (is (= (factorial 5) 120))
+  (is (= (factorial 8) 40320)))
+
 (defn longest-subseq [s]
     (or (first (for [l (reverse (range 2 (count s)))
                      f (filter #(apply < %) (partition l 1 s))]
