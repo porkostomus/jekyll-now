@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure-Problems-75-82
+title: 4clojure-Problems-75-83
 ---
 
 <pre><code class="language-klipse">(ns live.test
@@ -94,6 +94,18 @@ title: 4clojure-Problems-75-82
   (is (= true (word-chain #{"spout" "do" "pot" "pout" "spot" "dot"})))
   (is (= true (word-chain #{"share" "hares" "shares" "hare" "are"})))
   (is (= false (word-chain #{"share" "hares" "hare" "are"}))))
+  
+(defn half-truth [& vs]
+  (true? (and (some not vs)
+         (some identity vs))))
+
+(deftest test-83
+  (is (= false (half-truth false false)))
+  (is (= true (half-truth true false)))
+  (is (= false (half-truth true)))
+  (is (= true (half-truth false true false)))
+  (is (= false (half-truth true true true)))
+  (is (= true (half-truth true true true false))))
   
 (run-tests)
 </code></pre>
