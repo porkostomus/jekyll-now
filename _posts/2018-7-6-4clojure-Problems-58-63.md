@@ -65,5 +65,15 @@ title: 4clojure-Problems-58-63
   (is (= (my-group-by #(apply / %) [[1 2] [2 4] [4 6] [3 6]]) {1/2 [[1 2] [2 4] [3 6]], 2/3 [[4 6]]}))
   (is (= (my-group-by count [[1] [1 2] [3] [1 2 3] [2 3]]) {1 [[1] [3]], 2 [[1 2] [2 3]], 3 [[1 2 3]]})))
  
+ (defn black-box [c]
+  ((zipmap (map str [{} #{} () []]) [:map :set :list :vector]) (str (empty c))))
+
+(deftest test-65
+  (is (= :map (black-box {:a 1, :b 2})))
+  (is (= :list (black-box (range (rand-int 20)))))
+  (is (= :set (black-box #{10 (rand-int 5)})))
+  (is (= :vector (black-box [1 2 3 4 5 6])))
+  (is (= [:map :set :vector :list] (map black-box [{} #{} [] ()]))))
+ 
 (run-tests)
 </code></pre>
