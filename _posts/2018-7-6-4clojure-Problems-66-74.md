@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure-Problems-66-73
+title: 4clojure-Problems-66-74
 ---
 
 <pre><code class="language-klipse">(ns live.test
@@ -65,6 +65,14 @@ title: 4clojure-Problems-66-73
   (is (= :x (ttt [[:x :e :e] [:o :x :e] [:o :e :x]])))
   (is (= :o (ttt [[:x :e :o] [:x :o :e] [:o :e :x]])))
   (is (= nil (ttt [[:x :o :x] [:x :o :x] [:o :x :o]]))))
+  
+(defn perfect-square [s]
+  (let [l (re-seq #"\d+" s)]
+    (clojure.string/join "," (filter #{"4" "9" "16" "25" "36"} l))))
+
+(deftest test-74
+  (is (= (perfect-square "4,5,6,7,8,9") "4,9"))
+  (is (= (perfect-square "15,16,25,36,37") "16,25,36")))
   
 (run-tests)
 </code></pre>
