@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure-Problems-75-79
+title: 4clojure-Problems-75-81
 ---
 
 <pre><code class="language-klipse">(ns live.test
@@ -64,6 +64,14 @@ title: 4clojure-Problems-75-79
   (is (= (perfect-nums 496) true))
   (is (= (perfect-nums 500) false))
   (is (= (perfect-nums 8128) true)))
+  
+(defn set-sect [a b]
+  (set (filter a b)))
+
+(deftest test-81
+  (is (= (set-sect #{0 1 2 3} #{2 3 4 5}) #{2 3}))
+  (is (= (set-sect #{0 1 2} #{3 4 5}) #{}))
+  (is (= (set-sect #{:a :b :c :d} #{:c :e :a :f :d}) #{:a :c :d})))
   
 (run-tests)
 </code></pre>
