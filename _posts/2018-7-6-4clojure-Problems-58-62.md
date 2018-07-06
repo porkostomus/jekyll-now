@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure-Problems-58-61
+title: 4clojure-Problems-58-62
 ---
 
 <pre><code class="language-klipse">(ns live.test
@@ -45,6 +45,16 @@ title: 4clojure-Problems-58-61
   (is (= (make-map [:a :b :c] [1 2 3]) {:a 1, :b 2, :c 3}))
   (is (= (make-map [1 2 3 4] ["one" "two" "three"]) {1 "one", 2 "two", 3 "three"}))
   (is (= (make-map [:foo :bar] ["foo" "bar" "baz"]) {:foo "foo", :bar "bar"})))
+ 
+(defn spaz-out [f init]
+       (cons init
+         (lazy-seq
+           (spaz-out f (f init)))))
+
+(deftest test-62
+  (is (= (take 5 (spaz-out #(* 2 %) 1)) [1 2 4 8 16]))
+  (is (= (take 100 (spaz-out inc 0)) (take 100 (range))))
+  (is (= (take 9 (spaz-out #(inc (mod % 3)) 1)) (take 9 (cycle [1 2 3])))))
  
 (run-tests)
 </code></pre>
