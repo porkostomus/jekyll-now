@@ -1,14 +1,16 @@
 ---
 layout: post
-title: 4clojure-Problems-53-56
+title: 4clojure-Problems-39-56
 ---
-
-## 53 - Longest Increasing Subseq
-
-Given a vector of integers, find the longest consecutive sub-sequence of 2 or more increasing numbers.
 
 <pre><code class="language-klipse">(ns live.test
   (:require [cljs.test :refer-macros [deftest is testing run-tests]]))
+
+(defn my-interleave 
+  (mapcast list))
+
+(deftest test-39
+  (is (= (my-interleave [1 2 3] [:a :b :c]) '(1 :a 2 :b 3 :c)))
 
 (defn longest-subseq [s]
   (or (first (for [l (reverse (range 2 (count s)))
