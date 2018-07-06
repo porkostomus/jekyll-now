@@ -52,5 +52,18 @@ title: 4clojure-Problems-75-79
   (is (= (tri-path [[1] [2 4] [5 1 4] [2 3 4 5]]) (+ 1 2 1 3) 7))
   (is (= (tri-path [[3] [2 4] [1 9 3] [9 9 2 4] [4 6 6 7 8] [5 7 3 5 1 4]]) (+ 3 4 3 2 7 1) 20)))
   
+(defn perfect-nums [x]
+  (= x (apply + (filter #(= 0 (mod x %)) (range 1 x)))))
+  
+(defn perfect-nums [x]
+  (= x (apply + (filter #(= 0 (mod x %)) (range 1 x)))))
+
+(deftest test-80
+  (is (= (perfect-nums 6) true))
+  (is (= (perfect-nums 7) false))
+  (is (= (perfect-nums 496) true))
+  (is (= (perfect-nums 500) false))
+  (is (= (perfect-nums 8128) true)))
+  
 (run-tests)
 </code></pre>
