@@ -15,12 +15,20 @@ title: 4clojure-Problems-39-56
   (is (= (my-interleave [1 2 3 4] [5]) [1 5]))
   (is (= (my-interleave [30 20] [25 15]) [30 25 20 15])))
 
-  (defn longest-subseq [s]
+(defn inject [x coll]
+  (rest (interleave (repeat x) coll)))
+
+(deftest test-40
+  (is (= (inject 0 [1 2 3]) [1 0 2 0 3]))
+  (is (= (apply str (inject ", " ["one" "two" "three"])) "one, two, three"))
+  (is (= (inject :z [:a :b :c :d]) [:a :z :b :z :c :z :d])))
+
+(defn longest-subseq [s]
     (or (first (for [l (reverse (range 2 (count s)))
                      f (filter #(apply < %) (partition l 1 s))]
                  f)) []))
 
-  (deftest test-53
+(deftest test-53
     (is (= (longest-subseq [1 0 1 2 3 0 4 5]) [0 1 2 3]))
     (is (= (longest-subseq [5 6 1 3 2 7]) [5 6]))
     (is (= (longest-subseq [2 3 3 4 5]) [3 4 5]))
