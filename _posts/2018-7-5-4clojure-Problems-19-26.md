@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure-Problems-19-23
+title: 4clojure-Problems-19-26
 ---
 
 <pre><code class="language-klipse">(ns live.test
@@ -53,6 +53,21 @@ title: 4clojure-Problems-19-23
   (is (= (reverse-seq [1 2 3 4 5]) [5 4 3 2 1]))
   (is (= (reverse-seq (sorted-set 5 7 2 7)) '(7 5 2)))
   (is (= (reverse-seq [[1 2][3 4][5 6]]) [[5 6][3 4][1 2]])))
+
+(defn fib [a b] 
+  (lazy-seq (cons a (fib b (+ a b)))))
+
+(deftest test-26
+  (is (= (take 1 (fib 0 1)) '(0)))
+  (is (= (take 2 (fib 0 1)) '(0 1)))
+  (is (= (take 3 (fib 0 1)) '(0 1 1)))
+  (is (= (take 4 (fib 0 1)) '(0 1 1 2)))
+  (is (= (take 5 (fib 0 1)) '(0 1 1 2 3)))
+  (is (= (take 6 (fib 0 1)) '(0 1 1 2 3 5)))
+  (is (= (take 7 (fib 0 1)) '(0 1 1 2 3 5 8)))
+  (is (= (take 8 (fib 0 1)) '(0 1 1 2 3 5 8 13)))
+  (is (= (take 9 (fib 0 1)) '(0 1 1 2 3 5 8 13 21)))
+  (is (= (take 10 (fib 0 1)) '(0 1 1 2 3 5 8 13 21 34))))
 
 (run-tests)
 </code></pre>
