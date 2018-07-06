@@ -67,6 +67,14 @@ title: 4clojure-Problems-39-56
   (is (= 4 ((flipper quot) 2 8)))
   (is (= [1 2 3] ((flipper take) [1 2 3 4 5] 3))))
 
+(defn hack [n s]
+  [(take n s) (drop n s)])
+
+(deftest test-49
+  (is (= (hack 3 [1 2 3 4 5 6]) [[1 2 3] [4 5 6]]))
+  (is (= (hack 1 [:a :b :c :d]) [[:a] [:b :c :d]]))
+  (is (= (hack 2 [[1 2] [3 4] [5 6]]) [[[1 2] [3 4]] [[5 6]]])))
+
 (defn longest-subseq [s]
     (or (first (for [l (reverse (range 2 (count s)))
                      f (filter #(apply < %) (partition l 1 s))]
