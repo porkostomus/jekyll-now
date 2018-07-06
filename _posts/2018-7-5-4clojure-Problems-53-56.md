@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 4clojure-53-56
+title: 4clojure-Problems-53-56
 ---
 
-### 53 - Longest Increasing Subseq
+## 53 - Longest Increasing Subseq
 
 Given a vector of integers, find the longest consecutive sub-sequence of 2 or more increasing numbers.
 
@@ -24,7 +24,7 @@ Given a vector of integers, find the longest consecutive sub-sequence of 2 or mo
 (run-tests)
 </code></pre>
 
-### 54 - Partition
+## 54 - Partition
 
 Returns a sequence of lists of no less than x items each.
 
@@ -70,7 +70,7 @@ Source for ```partition``` function:
 (run-tests)
 </code></pre>
 
-### 55 - Frequencies
+## 55 - Frequencies
 
 Returns a map containing the number of occurences of each distinct item in a sequence.
 
