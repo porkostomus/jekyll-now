@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure-Problems-58-60
+title: 4clojure-Problems-58-61
 ---
 
 <pre><code class="language-klipse">(ns live.test
@@ -37,6 +37,14 @@ title: 4clojure-Problems-58-60
   (is (= (take 5 (my-reductions + (range))) [0 1 3 6 10]))
   (is (= (my-reductions conj [1] [2 3 4]) [[1] [1 2] [1 2 3] [1 2 3 4]]))
   (is (= (last (my-reductions * 2 [3 4 5])) (reduce * 2 [3 4 5]) 120)))
+ 
+(defn make-map [keys vals]
+  (apply hash-map (interleave keys vals)))
+
+(deftest test-61
+  (is (= (make-map [:a :b :c] [1 2 3]) {:a 1, :b 2, :c 3}))
+  (is (= (make-map [1 2 3 4] ["one" "two" "three"]) {1 "one", 2 "two", 3 "three"}))
+  (is (= (make-map [:foo :bar] ["foo" "bar" "baz"]) {:foo "foo", :bar "bar"})))
  
 (run-tests)
 </code></pre>
