@@ -87,7 +87,6 @@ title: 4clojure-Problems-75-82
             s)
       false))
 
-
 (deftest test-82
   (is (= true (word-chain #{"hat" "coat" "dog" "cat" "oat" "cot" "hot" "hog"})))
   (is (= false (word-chain #{"cot" "hot" "bat" "fat"})))
