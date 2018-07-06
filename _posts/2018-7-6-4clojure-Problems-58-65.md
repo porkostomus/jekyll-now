@@ -27,7 +27,7 @@ title: 4clojure-Problems-58-65
   (is (= [2 6 4] ((myjuxt :a :c :b) {:a 2, :b 4, :c 6, :d 8 :e 10})))) 
  
 (defn my-reductions
-  ([f [a & b]] (r f a b))
+  ([f [a & b]] (my-reductions f a b))
   ([f a b]
     (let [m (atom a)]
       (cons a (map #(swap! m f %) b)))))
