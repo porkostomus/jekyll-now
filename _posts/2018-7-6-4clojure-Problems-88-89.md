@@ -15,5 +15,27 @@ title: 4clojure Problems 88-89
   (is (= (sym-diff #{} #{4 5 6}) #{4 5 6}))
   (is (= (sym-diff #{[1 2] [2 3]} #{[2 3] [3 4]}) #{[1 2] [3 4]})))
 
+(defn eulerian [e]
+  (if (#{0 2} (count (filter odd? (vals (frequencies (mapcat seq e))))))
+    (not (next (reduce
+                (fn [g e]
+                  (let [[a b] (map (fn [n] (or (some #(if (% n) %) g) #{n})) e)]
+                    (conj (disj g a b) (into a b))))
+                #{}
+                e)))
+    false))
+
+(deftest test-89
+  (is (= true (eulerian [[:a :b]])))
+  (is (= false (eulerian [[:a :a] [:b :b]])))
+  (is (= false (eulerian [[:a :b] [:a :b] [:a :c] [:c :a]
+               [:a :d] [:b :d] [:c :d]])))
+  (is (= true (eulerian [[1 2] [2 3] [3 4] [4 1]])))
+  (is (= true (eulerian [[:a :b] [:a :c] [:c :b] [:a :e]
+              [:b :e] [:a :d] [:b :d] [:c :e]
+              [:d :e] [:c :f] [:d :f]])))
+  (is (= false (eulerian [[1 2] [2 3] [2 4] [2 5]]))))
+
+
 (run-tests)
 </code></pre>
