@@ -36,6 +36,18 @@ title: 4clojure Problems 88-89
               [:d :e] [:c :f] [:d :f]])))
   (is (= false (eulerian [[1 2] [2 3] [2 4] [2 5]]))))
 
+(defn cartesian [x y]
+  (set (for [a x b y] [a b])))
+
+(deftest test-90
+  (is (= (cartesian #{"ace" "king" "queen"} #{"♠" "♥" "♦" "♣"})
+   #{["ace"   "♠"] ["ace"   "♥"] ["ace"   "♦"] ["ace"   "♣"]
+     ["king"  "♠"] ["king"  "♥"] ["king"  "♦"] ["king"  "♣"]
+     ["queen" "♠"] ["queen" "♥"] ["queen" "♦"] ["queen" "♣"]}))
+  (is (= (cartesian #{1 2 3} #{4 5})
+   #{[1 4] [2 4] [3 4] [1 5] [2 5] [3 5]}))
+  (is (= 300 (count (cartesian (into #{} (range 10))
+                  (into #{} (range 30)))))))
 
 (run-tests)
 </code></pre>
