@@ -69,5 +69,17 @@ title: 4clojure Problems 88-91
   (is (= true (graph #{[:a :b] [:b :c] [:c :d]
               [:x :y] [:d :a] [:b :e] [:x :a]}))))
 
+(defn rn [n]
+  (->> (map {\C 100 \D 500 \I 1 \L 50 \M 1000 \V 5 \X 10} n)
+      (partition 2 1 [0])
+      (map (fn [[a b]] (if (< a b) (- a) a)))
+      (apply +)))
+
+(deftest test-92
+  (is (= 14 (rn "XIV")))
+  (is (= 827 (rn "DCCCXXVII")))
+  (is (= 3999 (rn "MMMCMXCIX")))
+  (is (= 48 (rn "XLVIII"))))
+
 (run-tests)
 </code></pre>
