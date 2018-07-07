@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure Problems 94-95
+title: 4clojure Problems 94-96
 ---
 
 <pre><code class="language-klipse">(ns live.test
@@ -79,6 +79,23 @@ title: 4clojure Problems 94-95
    false))
   (is (= (tree? '(:a nil ()))
    false))) 
+  
+(defn symmetric? [t]
+  (= t ((fn m [[v l r]] (if v [v (m r) (m l)])) t)))
+
+(deftest test-96
+  (is (= (symmetric? '(:a (:b nil nil) (:b nil nil))) true))
+  (is (= (symmetric? '(:a (:b nil nil) nil)) false))
+  (is (= (symmetric? '(:a (:b nil nil) (:c nil nil))) false))
+  (is (= (symmetric? [1 [2 nil [3 [4 [5 nil nil] [6 nil nil]] nil]]
+          [2 [3 nil [4 [6 nil nil] [5 nil nil]]] nil]])
+   true))
+    (is (= (symmetric? [1 [2 nil [3 [4 [5 nil nil] [6 nil nil]] nil]]
+          [2 [3 nil [4 [5 nil nil] [6 nil nil]]] nil]])
+   false))
+      (is (= (symmetric? [1 [2 nil [3 [4 [5 nil nil] [6 nil nil]] nil]]
+          [2 [3 nil [4 [6 nil nil] nil]] nil]])
+   false)))
   
 (run-tests)
 </code></pre>
