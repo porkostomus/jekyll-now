@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 4clojure-Problems-58-65
+title: 4clojure Problems 58-65
 ---
 
 <pre><code class="language-klipse">(ns live.test
