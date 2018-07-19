@@ -4,7 +4,7 @@ title: 4clojure Problems 100-101
 ---
 
 <pre><code class="language-klipse">(ns live.test
-  (:require [cljs.test :refer-macros [deftest is testing run-tests]]))
+  (:require [cljs.test :refer-macros [deftest is run-tests]]))
 
 (defn lcm [& args]
    (let [gcd (fn [a b] (if (zero? b) a (recur b (mod a b))))]
